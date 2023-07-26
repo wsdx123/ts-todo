@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
-import CardList from "components/cardList";
-import TodoForm from "components/todoForm";
 import { ActionTypes } from "redux/modules/todos";
+import styles from "./TodoForm.module.css";
 
-import styles from "routes/home/Home.module.css";
-
-function Home() {
+export const TodoForm = () => {
   const [todoTitle, setTodoTitle] = useState("");
   const [todoText, setTodoText] = useState("");
 
@@ -42,25 +38,16 @@ function Home() {
   };
 
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>TodoList</h1>
-        <TodoForm
-          title={todoTitle}
-          text={todoText}
-          handleSubmit={handleSubmit}
-          handleText={handleText}
-          handleTitle={handleTitle}
-        />
-      </header>
-      <main className={styles.main}>
-        <h3>working...</h3>
-        <CardList isDone={false} />
-        <h3>Done !</h3>
-        <CardList isDone={true} />
-      </main>
-    </div>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div>
+        <label>제목</label>
+        <input value={todoTitle} onChange={handleTitle} />
+        <label>내용</label>
+        <input value={todoText} onChange={handleText} />
+      </div>
+      <button type="submit" className={styles.submitBtn}>
+        추가하기
+      </button>
+    </form>
   );
-}
-
-export default Home;
+};

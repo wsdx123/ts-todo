@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Modal from "components/modal";
 import { ActionTypes } from "redux/modules/todos";
 
-import styles from "components/card/Card.module.css";
+import { Modal } from "components";
+import styles from "./Card.module.css";
 
-function Card({ props, children }) {
+export const Card = ({ props, children }) => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -51,6 +51,4 @@ function Card({ props, children }) {
       {openModal && <Modal setOpenModal={setOpenModal} cardId={props.id} />}
     </div>
   );
-}
-
-export default Card;
+};

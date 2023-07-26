@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ActionTypes } from "redux/modules/todos";
 
-import styles from "components/modal/Modal.module.css";
+import styles from "./Modal.module.css";
 
-function Modal({ setOpenModal, cardId }) {
+export const Modal = ({ setOpenModal, cardId }) => {
   const cardData = useSelector((state) =>
     state.todos.find((el) => el.id === cardId)
   );
@@ -54,6 +54,4 @@ function Modal({ setOpenModal, cardId }) {
       </div>
     </div>
   );
-}
-
-export default Modal;
+};
