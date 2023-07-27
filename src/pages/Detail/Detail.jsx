@@ -6,9 +6,7 @@ import styles from "./Detail.module.css";
 export const Detail = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const detailData = useSelector((state) =>
-    state.todos.find((el) => el.id === +params.id)
-  );
+  const detailData = useSelector(state => state.todos.find(el => el.id === +params.id));
 
   const handleBack = () => {
     navigate("/");

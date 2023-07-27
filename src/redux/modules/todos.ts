@@ -2,7 +2,7 @@ export enum ActionTypes {
   ADD = "todos/ADD",
   DELETE = "todos/DELETE",
   DONE = "todos/DONE",
-  UPDATE = "todos/UPDATE",
+  UPDATE = "todos/UPDATE"
 }
 
 // const ADD = "todos/ADD";
@@ -46,23 +46,23 @@ const todos = (state = initalState, action: Actions) => {
     case ActionTypes.ADD:
       return [...state, action.payload];
     case ActionTypes.DELETE:
-      return state.filter((el) => el.id !== action.payload);
+      return state.filter(el => el.id !== action.payload);
     case ActionTypes.DONE:
-      return state.map((el) =>
+      return state.map(el =>
         el.id === action.payload.id
           ? {
               ...el,
-              isDone: !action.payload.isDone,
+              isDone: !action.payload.isDone
             }
           : el
       );
     case ActionTypes.UPDATE:
-      return state.map((el) =>
+      return state.map(el =>
         el.id === action.payload.id
           ? {
               ...el,
               todoTitle: action.payload.todoTitle,
-              todoText: action.payload.todoText,
+              todoText: action.payload.todoText
             }
           : el
       );

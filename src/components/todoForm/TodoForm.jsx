@@ -9,15 +9,15 @@ export const TodoForm = () => {
 
   const dispatch = useDispatch();
 
-  const handleTitle = (e) => {
+  const handleTitle = e => {
     setTodoTitle(e.target.value);
   };
 
-  const handleText = (e) => {
+  const handleText = e => {
     setTodoText(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (todoTitle === "" || todoText === "") {
       alert("title과 text를 모두 입력하시오");
@@ -27,11 +27,11 @@ export const TodoForm = () => {
       id: Math.floor(e.timeStamp),
       todoTitle,
       todoText,
-      isDone: false,
+      isDone: false
     };
     dispatch({
       type: ActionTypes.ADD,
-      payload: newTodo,
+      payload: newTodo
     });
     setTodoTitle("");
     setTodoText("");

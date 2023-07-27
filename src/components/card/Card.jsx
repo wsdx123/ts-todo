@@ -14,14 +14,14 @@ export const Card = ({ props, children }) => {
   const handleRemove = () => {
     dispatch({
       type: ActionTypes.DELETE,
-      payload: props.id,
+      payload: props.id
     });
   };
 
   const handleDone = () => {
     dispatch({
       type: ActionTypes.DONE,
-      payload: props,
+      payload: props
     });
   };
 

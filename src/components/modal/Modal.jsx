@@ -6,20 +6,18 @@ import { ActionTypes } from "redux/modules/todos";
 import styles from "./Modal.module.css";
 
 export const Modal = ({ setOpenModal, cardId }) => {
-  const cardData = useSelector((state) =>
-    state.todos.find((el) => el.id === cardId)
-  );
+  const cardData = useSelector(state => state.todos.find(el => el.id === cardId));
 
   const [title, setTitle] = useState(cardData.todoTitle);
   const [text, setText] = useState(cardData.todoText);
 
   const dispatch = useDispatch();
 
-  const handleTitle = (e) => {
+  const handleTitle = e => {
     setTitle(e.target.value);
   };
 
-  const handleText = (e) => {
+  const handleText = e => {
     setText(e.target.value);
   };
 
@@ -27,12 +25,12 @@ export const Modal = ({ setOpenModal, cardId }) => {
     setOpenModal(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     dispatch({
       type: ActionTypes.UPDATE,
-      payload: { todoTitle: title, todoText: text, id: cardId },
+      payload: { todoTitle: title, todoText: text, id: cardId }
     });
     setOpenModal(false);
   };
