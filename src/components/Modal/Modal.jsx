@@ -1,25 +1,17 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ActionTypes } from "redux/modules/todos";
 
+import { useInput } from "hooks/useInput";
 import styles from "./Modal.module.css";
 
 export const Modal = ({ setOpenModal, cardId }) => {
   const cardData = useSelector(state => state.todos.find(el => el.id === cardId));
 
-  const [title, setTitle] = useState(cardData.todoTitle);
-  const [text, setText] = useState(cardData.todoText);
+  const [title, handleTitle] = useInput(cardData.todoTitle);
+  const [text, handleText] = useInput(cardData.todoText);
 
   const dispatch = useDispatch();
-
-  const handleTitle = e => {
-    setTitle(e.target.value);
-  };
-
-  const handleText = e => {
-    setText(e.target.value);
-  };
 
   const handleModal = () => {
     setOpenModal(false);

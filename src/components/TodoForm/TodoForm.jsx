@@ -1,21 +1,13 @@
-import { useState } from "react";
+import { useInput } from "hooks/useInput";
 import { useDispatch } from "react-redux";
 import { ActionTypes } from "redux/modules/todos";
 import styles from "./TodoForm.module.css";
 
 export const TodoForm = () => {
-  const [todoTitle, setTodoTitle] = useState("");
-  const [todoText, setTodoText] = useState("");
+  const [todoTitle, handleTitle, resetTitle] = useInput();
+  const [todoText, handleText, resetText] = useInput();
 
   const dispatch = useDispatch();
-
-  const handleTitle = e => {
-    setTodoTitle(e.target.value);
-  };
-
-  const handleText = e => {
-    setTodoText(e.target.value);
-  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -33,8 +25,8 @@ export const TodoForm = () => {
       type: ActionTypes.ADD,
       payload: newTodo
     });
-    setTodoTitle("");
-    setTodoText("");
+    resetTitle();
+    resetText();
   };
 
   return (
