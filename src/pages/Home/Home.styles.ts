@@ -1,4 +1,6 @@
-.container {
+import { styled } from "styled-components";
+
+export const HomeContainer = styled.div`
   height: calc(100vh - 20px);
   max-width: 1200px;
   min-width: 800px;
@@ -8,29 +10,27 @@
   margin: 10px;
   border: 1px solid black;
   border-radius: 10px;
-}
-
-.header {
+`;
+export const HomeHeader = styled.header`
   background-color: black;
   width: 100%;
   text-align: center;
   border-radius: 10px 10px 0px 0px;
   color: white;
-}
-.header > h1 {
+`;
+export const HomeTitle = styled.h1`
   margin: 20px 0;
   font-weight: bold;
   font-size: xx-large;
-}
-
-.main {
+`;
+export const HomeMain = styled.main`
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-}
-.main > h3 {
+`;
+export const StateTitle = styled.h3`
   margin: 20px 0 20px 10px;
   font-weight: bold;
   font-size: large;
-}
+`;

@@ -1,14 +1,11 @@
+import { initialTodos } from "types";
+
 export enum ActionTypes {
   ADD = "todos/ADD",
   DELETE = "todos/DELETE",
   DONE = "todos/DONE",
-  UPDATE = "todos/UPDATE",
+  UPDATE = "todos/UPDATE"
 }
-
-// const ADD = "todos/ADD";
-// const DELETE = "todos/DELETE";
-// const DONE = "todos/DONE";
-// const UPDATE = "todos/UPDATE";
 
 export interface addTodo {
   type: ActionTypes.ADD;
@@ -17,7 +14,7 @@ export interface addTodo {
 
 export interface deleteTodo {
   type: ActionTypes.DELETE;
-  payload: number;
+  payload: string;
 }
 
 export interface doneTodo {
@@ -32,13 +29,6 @@ export interface updateTodo {
 
 export type Actions = addTodo | deleteTodo | doneTodo | updateTodo;
 
-interface initialTodos {
-  todoTitle: string;
-  todoText: string;
-  isDone: boolean;
-  id: number;
-}
-
 const initalState: initialTodos[] = [];
 
 const todos = (state = initalState, action: Actions) => {
@@ -46,23 +36,23 @@ const todos = (state = initalState, action: Actions) => {
     case ActionTypes.ADD:
       return [...state, action.payload];
     case ActionTypes.DELETE:
-      return state.filter((el) => el.id !== action.payload);
+      return state.filter(el => el.id !== action.payload);
     case ActionTypes.DONE:
-      return state.map((el) =>
+      return state.map(el =>
         el.id === action.payload.id
           ? {
               ...el,
-              isDone: !action.payload.isDone,
+              isDone: !action.payload.isDone
             }
           : el
       );
     case ActionTypes.UPDATE:
-      return state.map((el) =>
+      return state.map(el =>
         el.id === action.payload.id
           ? {
               ...el,
               todoTitle: action.payload.todoTitle,
-              todoText: action.payload.todoText,
+              todoText: action.payload.todoText
             }
           : el
       );

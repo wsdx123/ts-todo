@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Typescript로 리팩토링 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[원본 프로젝트](https://github.com/wsdx123/todo-sparta)
 
-## Available Scripts
+<br>
+<br>
 
-In the project directory, you can run:
+## 🚀 배포
 
-### `yarn start`
+업로드 예정
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🔧 기술 스택
 
-### `yarn test`
+- Typescript
+- Styled-components
+- Redux
+- React-router-dom
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<br>
 
-### `yarn build`
+## 📌 실행 방법
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/wsdx123/ts-todo.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+yarn install && yarn start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
+<br>
 
-### `yarn eject`
+## 🐝 어려웠던 점
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- root가 있는 index.js 파일을 ts로 리팩토링 시, **무조건** .tsx확장자로 선언해줘야 한다. js와 달리 ts는 자동으로 tsx 변환을 시키지 못하여 redux provider나 react-router가 사용할수 없게 된다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 타입스크립트로 리팩토링 하는것 외적으로, git 이 파일/폴더의 대소문자를 구분하지 못한다. 그래서 폴더명을 변경하고 git에 push 했을때 약간의 문제가 있었다. 터미널에 `git config core.ignorecase false` 라는 명령어를 사용하면 대소문자도 감지할수 있게 세팅된다. ( `git rm -r --cached` 라는 명령어도 이후에 입력하고 add/commit/push를 해야 오류를 방지할 수 있다)
