@@ -1,3 +1,5 @@
+import { initialTodos } from "types";
+
 export enum ActionTypes {
   ADD = "todos/ADD",
   DELETE = "todos/DELETE",
@@ -26,13 +28,6 @@ export interface updateTodo {
 }
 
 export type Actions = addTodo | deleteTodo | doneTodo | updateTodo;
-
-export interface initialTodos {
-  todoTitle: string;
-  todoText: string;
-  isDone: boolean;
-  id: string;
-}
 
 const initalState: initialTodos[] = [];
 

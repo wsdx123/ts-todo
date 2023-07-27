@@ -2,7 +2,8 @@ import { Modal } from "components";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { ActionTypes, initialTodos } from "redux/modules/todos";
+import { ActionTypes } from "redux/modules/todos";
+import { initialTodos } from "types";
 import * as Styled from "./Card.styles";
 
 interface Props {
