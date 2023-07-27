@@ -1,7 +1,9 @@
 import { useInput } from "hooks/useInput";
+import { FormEvent } from "react";
 import { useDispatch } from "react-redux";
 import { ActionTypes } from "redux/modules/todos";
-import styles from "./TodoForm.module.css";
+import { v4 as uuidv4 } from "uuid";
+import * as Styled from "./TodoForm.styles";
 
 export const TodoForm = () => {
   const [todoTitle, handleTitle, resetTitle] = useInput();
@@ -9,14 +11,15 @@ export const TodoForm = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+  type TSubmit = (e: FormEvent<HTMLFormElement>) => void;
+  const handleSubmit: TSubmit = e => {
     e.preventDefault();
     if (todoTitle === "" || todoText === "") {
       alert("title과 text를 모두 입력하시오");
       return;
     }
     const newTodo = {
-      id: Math.floor(e.timeStamp),
+      id: uuidv4(),
       todoTitle,
       todoText,
       isDone: false
@@ -31,16 +34,14 @@ export const TodoForm = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <div>
-        <label>제목</label>
-        <input value={todoTitle} onChange={handleTitle} />
-        <label>내용</label>
-        <input value={todoText} onChange={handleText} />
-      </div>
-      <button type="submit" className={styles.submitBtn}>
-        추가하기
-      </button>
-    </form>
+    <Styled.TodoFormContainer onSubmit={handleSubmit}>
+      <Styled.InputBox>
+        <Styled.InputLabel>제목</Styled.InputLabel>
+        <Styled.TodoInput value={todoTitle} onChange={handleTitle} />
+        <Styled.InputLabel>내용</Styled.InputLabel>
+        <Styled.TodoInput value={todoText} onChange={handleText} />
+      </Styled.InputBox>
+      <Styled.SubmitBtn type="submit">추가하기</Styled.SubmitBtn>
+    </Styled.TodoFormContainer>
   );
 };

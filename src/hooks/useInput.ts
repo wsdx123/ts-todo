@@ -9,7 +9,8 @@ export const useInput = (init: string = "") => {
     setValue(e.target.value);
   };
 
-  const resetValue: THandle = e => {
+  type TReset = () => void;
+  const resetValue: TReset = () => {
     setValue(init);
   };
 

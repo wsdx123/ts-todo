@@ -1,24 +1,25 @@
-.form {
+import { styled } from "styled-components";
+
+export const TodoFormContainer = styled.form`
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.form > div {
+`;
+export const InputBox = styled.div`
   display: flex;
   align-items: center;
-}
-.form > div > label {
+`;
+export const InputLabel = styled.label`
   margin-right: 5px;
-}
-.form > div > input {
+`;
+export const TodoInput = styled.input`
   margin-right: 20px;
   border-radius: 8px;
   border: none;
   height: 25px;
-}
-
-.submitBtn {
+`;
+export const SubmitBtn = styled.button`
   background-color: white;
   border: none;
   border-radius: 5px;
@@ -26,4 +27,4 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-}
+`;

@@ -9,7 +9,7 @@ import * as Styled from "./Modal.styles";
 
 interface Props {
   setOpenModal: Dispatch<SetStateAction<boolean>>;
-  cardId: number;
+  cardId: string;
 }
 
 export const Modal = ({ setOpenModal, cardId }: Props) => {

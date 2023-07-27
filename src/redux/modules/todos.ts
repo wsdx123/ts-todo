@@ -12,7 +12,7 @@ export interface addTodo {
 
 export interface deleteTodo {
   type: ActionTypes.DELETE;
-  payload: number;
+  payload: string;
 }
 
 export interface doneTodo {
@@ -31,7 +31,7 @@ export interface initialTodos {
   todoTitle: string;
   todoText: string;
   isDone: boolean;
-  id: number;
+  id: string;
 }
 
 const initalState: initialTodos[] = [];
