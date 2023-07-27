@@ -5,11 +5,6 @@ export enum ActionTypes {
   UPDATE = "todos/UPDATE"
 }
 
-// const ADD = "todos/ADD";
-// const DELETE = "todos/DELETE";
-// const DONE = "todos/DONE";
-// const UPDATE = "todos/UPDATE";
-
 export interface addTodo {
   type: ActionTypes.ADD;
   payload: initialTodos;
@@ -32,7 +27,7 @@ export interface updateTodo {
 
 export type Actions = addTodo | deleteTodo | doneTodo | updateTodo;
 
-interface initialTodos {
+export interface initialTodos {
   todoTitle: string;
   todoText: string;
   isDone: boolean;

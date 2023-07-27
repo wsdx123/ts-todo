@@ -1,4 +1,6 @@
-.card {
+import { styled } from "styled-components";
+
+export const CardContainer = styled.div`
   background-color: black;
   width: 180px;
   min-height: 150px;
@@ -10,39 +12,25 @@
   flex-direction: column;
   justify-content: space-between;
   color: white;
-}
-.card > h4 {
+`;
+export const CardTitle = styled.h4`
   font-weight: 600;
   font-size: large;
   margin-bottom: 10px;
-}
-
-.card > p {
+`;
+export const CardText = styled.p`
   word-break: break-all;
-}
-.cardBtn {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0;
-}
-.cardBtn > div {
+`;
+export const BtnContainer = styled.div`
   display: flex;
   margin: 10px 0;
-}
-
-.cardBtn > div > button {
+  gap: 10px;
+`;
+export const BtnItem = styled.button<{ color: string }>`
   width: 100%;
   background-color: white;
   border-radius: 5px;
-  border: 1px solid rgb(42, 229, 42);
+  border: 1px solid ${props => props.color};
   font-weight: 800;
   cursor: pointer;
-}
-.cardBtn > div > button:first-child {
-  margin-right: 10px;
-  border: 1px solid red;
-}
-.cardBtn > div > button:nth-child(2) {
-  margin-right: 10px;
-  border: 1px solid blue;
-}
+`;

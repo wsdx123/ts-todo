@@ -1,11 +1,13 @@
-import { createStore } from 'redux'
-import { combineReducers } from 'redux'
+import { combineReducers, createStore } from "redux";
 
-import todos from 'redux/modules/todos'
+import todos from "redux/modules/todos";
 
 const rootReducer = combineReducers({
-  todos,
-})
-const store = createStore(rootReducer)
+  todos
+});
 
-export default store
+export type RootState = ReturnType<typeof rootReducer>;
+
+const store = createStore(rootReducer);
+
+export default store;

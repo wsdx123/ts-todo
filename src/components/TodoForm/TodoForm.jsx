@@ -21,6 +21,7 @@ export const TodoForm = () => {
       todoText,
       isDone: false
     };
+
     dispatch({
       type: ActionTypes.ADD,
       payload: newTodo
